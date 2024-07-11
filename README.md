@@ -1,5 +1,5 @@
 # DDoS
 A simple ddos script!
 
-##Using:
+## Using:
 ddos.py **TARGET COUNT**
