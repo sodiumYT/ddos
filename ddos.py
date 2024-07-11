@@ -7,6 +7,7 @@ try:
 except:
 	print(f"{Fore.RED}Error!{Fore.RESET}")
 	print(f"{Fore.CYAN}Using: {Fore.GREEN}ddos.py [TARGET] [COUNT]{Fore.RESET}")
+	print(f"{Fore.CYAN}Example: {Fore.GREEN}ddos.py example.com 500{Fore.RESET}")
 	sys.exit(1)
 fake_ip = '182.21.20.32'
 port = 80
