@@ -3,7 +3,7 @@ from colorama import Fore
 
 try:
 	target = sys.argv[1]
-	count = sys.argv[2]
+	count = int(sys.argv[2])
 except:
 	print(f"{Fore.RED}Error!{Fore.RESET}")
 	print(f"{Fore.CYAN}Using: {Fore.GREEN}ddos.py [TARGET] [COUNT]{Fore.RESET}")
